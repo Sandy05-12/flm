@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leave Applications</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('data:image/jpeg;base64,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'); 
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select {
+            width: calc(100% - 20px);
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Blue color */
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{{url_for('faculty_dashboard')}}"><button>Back</button></a>
+        <h2>Leave Applications</h2>
+        <form action="{{url_for('apply_leave')}}" method="POST">
+            <input type="text" name="faculty_id" placeholder="Faculty ID" required>
+            <input type="text" name="leave_type" placeholder="Leave Type" required>
+            <input type="date" name="start_date" required>
+            <input type="date" name="end_date" required>
+            <button type="submit">Apply for leave</button>
+        </form>
+        <a href="{{url_for('faculty_dashboard')}}"><button>back</button></a>
+    </div>
+</body>
+</html>

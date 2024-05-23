@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workload Management</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://img.freepik.com/free-photo/flat-lay-workstation-with-copy-space-laptop_23-2148430879.jpg'); 
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"],
+        textarea {
+            width: calc(100% - 20px);
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff; /* Blue color */
+            color: #fff;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .workload-item {
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="{{ url_for('faculty_dashboard') }}"><button>Back</button></a>
+
+        <h2>Update Workload</h2>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p style="color:green;"><b>{{ message }}</b></p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% for workload in workload_leaves %}
+            <div class="workload-item">
+                <p>Faculty ID: {{ workload[0] }}</p>
+                <p>Workload Description: {{ workload[1] }}</p>
+                <p>Leave ID: {{ workload[2] }}</p>
+                <p>Leave Period: {{ workload[3] }} to {{ workload[4] }}</p>
+
+                <form method="POST">
+                    <input type="hidden" name="update" value="{{ workload[0] }}">
+                    <input type="text" name="new_description" placeholder="New Workload Description">
+                    <button type="submit">Update</button>
+                </form>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
